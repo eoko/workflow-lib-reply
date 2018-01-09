@@ -1,5 +1,5 @@
 {
-  "name": "workflow-lib/reply",
+  "name": "workflow-lib-reply",
   "version": "0.0.1",
   "description": "Reply jobs for workflow manager",
   "main": "index.js",
