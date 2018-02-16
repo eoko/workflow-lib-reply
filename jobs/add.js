@@ -29,7 +29,7 @@ module.exports = async(job) => {
 	if(body.link) {
 		sendData.link = body.link
 	}
-	if(wfData.mapping.custom_fields) {
+	if(wfData.mapping && wfData.mapping.custom_fields) {
 		sendData.customFields = [];
 		wfData.mapping.custom_fields.forEach(function (element) {
 			let keyReply = element.key;
