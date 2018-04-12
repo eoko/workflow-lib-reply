@@ -14,11 +14,11 @@ module.exports = async(job) => {
   const sendData = {
     campaignId: wfData.campaign_id,
     email: body.email
-	};
+  };
 
   const peopleData = {
     email: body.email
-	};
+  };
 
   if(body.source){
     sendData.source = body.source;
@@ -47,6 +47,11 @@ module.exports = async(job) => {
     }
   }
 
+  // firstname is a required field in addandpushtocampaign
+  if(!peopleData.firstName) {
+    peopleData.firstName = body.email;
+  }
+
   try {
     job.progress(10);
 
@@ -68,7 +73,6 @@ module.exports = async(job) => {
 
       await replyService.api(wfData.api_key).send('POST', '/v1/actions/addandpushtocampaign', Object.assign(sendData, peopleData));
       job.progress(100);
-
     } else {
       throw err;
     }
