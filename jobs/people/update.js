@@ -1,4 +1,5 @@
 const replyService = require('../../services/service');
+const get = require('lodash.get');
 
 module.exports = async(job) => {
 
@@ -26,7 +27,7 @@ module.exports = async(job) => {
   if(wfData.mapping) {
     Object.keys(wfData.mapping).map((val) => {
       if(val !== 'custom_fields') {
-        peopleData[val] = body[wfData.mapping[val]];
+        peopleData[val] = get(body, wfData.mapping[val], '');
       }
     });
 
