@@ -1,5 +1,10 @@
 const replyService = require('../services/service');
 
+/**
+ * LEGACY
+ * @param job
+ * @returns {Promise<void>}
+ */
 module.exports = async(job) => {
 
     const {
